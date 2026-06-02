@@ -27,6 +27,19 @@ TEST(st1, checkPrime_large_values) {
     EXPECT_FALSE(checkPrime(100));
 }
 
+TEST(st1, checkPrime_square_of_large_prime_is_composite) {
+    EXPECT_FALSE(checkPrime(121));
+    EXPECT_FALSE(checkPrime(169));
+}
+
+TEST(st1, checkPrime_even_large_number_is_composite) {
+    EXPECT_FALSE(checkPrime(1000000));
+}
+
+TEST(st1, nPrime_zero_returns_zero) {
+    EXPECT_EQ(0, nPrime(0));
+}
+
 TEST(st1, nPrime_first) {
     EXPECT_EQ(2, nPrime(1));
 }
@@ -41,6 +54,15 @@ TEST(st1, nPrime_third) {
 
 TEST(st1, nPrime_tenth) {
     EXPECT_EQ(29, nPrime(10));
+}
+
+TEST(st1, nPrime_twenty_fifth) {
+    EXPECT_EQ(97, nPrime(25));
+}
+
+TEST(st1, nextPrime_from_zero_and_one) {
+    EXPECT_EQ(2, nextPrime(0));
+    EXPECT_EQ(2, nextPrime(1));
 }
 
 TEST(st1, nextPrime_from_composite) {
@@ -59,6 +81,10 @@ TEST(st1, sumPrime_less_than_2) {
     EXPECT_EQ(0, sumPrime(0));
     EXPECT_EQ(0, sumPrime(1));
     EXPECT_EQ(0, sumPrime(2));
+}
+
+TEST(st1, sumPrime_boundary_after_first_prime) {
+    EXPECT_EQ(2, sumPrime(3));
 }
 
 TEST(st1, sumPrime_small) {
